@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BC WebDemo.Models
+namespace BC_WebDemo.Models
 {
     public partial class Suppliers
     {
