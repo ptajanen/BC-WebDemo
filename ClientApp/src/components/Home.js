@@ -12,17 +12,23 @@ export class Home extends Component {
     let that = this;
     console.log("Aloitetaan datan haku.");
     fetch('/api/customers/luvut')
-      .then(function (response) {
+      .then(function(response) {
         return response.json();
       })
-      .then(function (myJson) {
+      .then(function(myJson) {
         console.log(JSON.stringify(myJson));
-        this.setState({ luvut: myJson});
+        // console.log("lukumäärä: " +myJson.lenght);
+        that.setState({ luvut: myJson});
+        // console.log("Tila asetettu");
       });
   }
 
   render() {
+
     console.log("Render-metodissa.");
+    
+    const luvut = this.state.luvut.map((luku) =>
+    <li>{luku}</li>);
 
     return (
       <div>
@@ -74,6 +80,13 @@ export class Home extends Component {
           <li><strong>Efficient production builds</strong>. In production mode, development-time features are disabled, and your <code>dotnet publish</code> configuration produces minified, efficiently bundled JavaScript files.</li>
         </ul>
         <p>The <code>ClientApp</code> subdirectory is a standard React application based on the <code>create-react-app</code> template. If you open a command prompt in that directory, you can run <code>npm</code> commands such as <code>npm test</code> or <code>npm install</code>.</p>
+
+        <div className="alert alert-success" role="alert">
+           A simple success alert-check it out!
+        </div>
+        <ul style={{fontSize: 30}}>
+        {luvut}
+        </ul>
       </div>
     );
   }

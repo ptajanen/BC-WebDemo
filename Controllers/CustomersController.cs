@@ -12,13 +12,13 @@ namespace BC_WebDemo.Controllers
     public class CustomersController : Controller
     {
         [Route("moikka")]
-        public string Moi()  {      
+        public string GetMoi()  {      
             return "Moikka!";
         }
 
         [Route("luvut")]
         public int[] GetLuvut() {
-            return new int[] { 1, 2, 3, 4, 5 };
+            return new int[] { 6, 7, 8, 9, 10 };
         }
         public List<Customers> GetCustomers()
         {
