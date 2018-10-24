@@ -12,23 +12,28 @@ namespace BC_WebDemo.Controllers
     public class CustomersController : Controller
     {
         [Route("moikka")]
-        public string GetMoi()  {      
+        public string GetMoi()
+        {
             return "Moikka!";
         }
 
-        [Route("luvut")]
-        public int[] GetLuvut() {
-            return new int[] { 6, 7, 8, 9, 10 };
-        }
-        public List<Customers> GetCustomers()
+                public List<Customers> GetCustomers()
         {
             NorthwindContext context = new NorthwindContext();
 
-            List<Customers> customers = (from c in context.Customers
-                                         where c.Country == "Finland"
-                                         orderby c.City
-                                         select c).ToList();
-            return customers;
+            try
+            {
+
+                List<Customers> asiakkaat = (from c in context.Customers
+                                             where c.Country == "Finland"
+                                             orderby c.City
+                                             select c).ToList();
+                return asiakkaat;
+            }
+            finally
+            {
+                context.Dispose();
+            }
         }
     }
 }
