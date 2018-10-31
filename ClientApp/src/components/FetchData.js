@@ -5,51 +5,54 @@ export class FetchData extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { forecasts: [], loading: true };
+    this.state = { customers: [], loading: true };
 
-    fetch('api/SampleData/WeatherForecasts')
-      .then(response => response.json())
-      .then(data => {
-        this.setState({ forecasts: data, loading: false });
+  }
+  componentWillMount() {
+
+    let reactKomponentti = this;
+
+    console.log("Aloitetaan datan haku/fetch-kutsu.");
+    fetch('/api/customers')
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (myJson) {
+        console.log(JSON.stringify(myJson));
+        reactKomponentti.setState({ customers: myJson });
       });
   }
 
-  static renderForecastsTable(forecasts) {
-    return (
-      <table className='table'>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
-          </tr>
-        </thead>
-        <tbody>
-          {forecasts.map(forecast =>
-            <tr key={forecast.dateFormatted}>
-              <td>{forecast.dateFormatted}</td>
-              <td>{forecast.temperatureC}</td>
-              <td>{forecast.temperatureF}</td>
-              <td>{forecast.summary}</td>
-            </tr>
-          )}
-        </tbody>
-      </table>
-    );
-  }
-
   render() {
-    let contents = this.state.loading
-      ? <p><em>Loading...</em></p>
-      : FetchData.renderForecastsTable(this.state.forecasts);
+    console.log("Render()-metodissa");
+
+    const asiakkaat = this.state.customers.map((c) =>
+      <tr>
+        <td style={{ color: "blue" }}>{c.companyName}</td>
+        <td>{c.city}</td>
+        <td style={{ color: "red" }}>{c.country}</td>
+      </tr>
+    );
 
     return (
+
       <div>
-        <h1>Weather forecast</h1>
-        <p>This component demonstrates fetching data from the server.</p>
-        {contents}
-      </div>
-    );
+
+        <h2>Suomalaiset asiakkaat Northwind-tietokannasta</h2>
+
+        <table className="table table-bordered">
+          <thead>
+            <tr>
+              <th>Yritys</th>
+              <th>Kaupunki </th>
+              <th>Maa</th>
+            </tr>
+          </thead>
+          <tbody>
+            {asiakkaat}
+          </tbody>
+        </table>  
+</div>
+    )
   }
 }

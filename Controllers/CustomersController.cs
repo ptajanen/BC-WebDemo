@@ -11,19 +11,12 @@ namespace BC_WebDemo.Controllers
     [Route("api/[controller]")] //web-osoite
     public class CustomersController : Controller
     {
-        [Route("moikka")]
-        public string GetMoi()
-        {
-            return "Moikka!";
-        }
-
-                public List<Customers> GetCustomers()
+        public List<Customers> GetCustomers()             
         {
             NorthwindContext context = new NorthwindContext();
 
             try
             {
-
                 List<Customers> asiakkaat = (from c in context.Customers
                                              where c.Country == "Finland"
                                              orderby c.City
@@ -35,6 +28,14 @@ namespace BC_WebDemo.Controllers
                 context.Dispose();
             }
         }
+     
+     
     }
 }
+
+        
+        
+    
+    
+
 

@@ -7,15 +7,15 @@
 .navbar .navbar-nav .active a:hover,
 .navbar .navbar-nav .active a:focus {
     background-image: none;
-    background-color: #4189C7;
-    color: white;
+    background-color: rgb(237, 241, 245);
+    color: rgb(131, 19, 19);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 500px) {
     /* On large screens, convert the nav menu to a vertical sidebar */
     .navbar {
         height: 100%;
-        width: calc(25% - 20px);
+        width: calc(20% - 20px);
     }
     .navbar {
         border-radius: 0;
@@ -26,8 +26,8 @@
         float: none;
     }
     .navbar .navbar-collapse {
-        border-top: 1px solid #444;
-        padding: 0;
+        border-top: 1px solid rgb(194, 59, 59);
+        padding: 2;
     }
     .navbar .container-fluid {
         padding: 0;
@@ -41,7 +41,7 @@
     }
     .navbar li {
         float: none;
-        font-size: 15px;
+        font-size: 18px;
         margin: 6px;
     }
     .navbar li a {

@@ -35,7 +35,7 @@ export class NavMenu extends Component {
             </LinkContainer>
             <LinkContainer to={'/piasown'}>
               <NavItem>
-                <Glyphicon glyph='th-list' /> Pia's Own
+                <Glyphicon glyph='user' /> Pian oma
               </NavItem>
             </LinkContainer>
           </Nav>
