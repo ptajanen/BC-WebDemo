@@ -1,15 +1,15 @@
-body, html {
-        height: 100%;
+body, html
+{
+height:100%; 
+margin:0;
+}
+      .hero-image {  
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("./Happy.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 80vw;
+      height: 100vh;
+      position: relative; 
     }
-      .bg {
-        /* The image used */
-        background-image: url("Happy.jpg");
-    
-        /* Full height */
-        height: 100%;
-    
-        /* Center and scale the image nicely */
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
+  

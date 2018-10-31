@@ -6,7 +6,6 @@ import { FetchData } from './components/FetchData';
 import { Counter } from './components/Counter';
 import { PiasOwn} from './components/PiasOwn';
 
-
 export default class App extends Component {
   displayName = App.name
 
